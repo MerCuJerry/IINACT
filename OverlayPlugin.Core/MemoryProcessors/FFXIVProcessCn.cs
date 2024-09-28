@@ -108,12 +108,6 @@ namespace RainbowMage.OverlayPlugin.MemoryProcessors
         // Because this line is a cmp byte line, the signature is not at the end of the line.
         private static int kInCombatRipOffset = 1;
 
-        // Bait integer.
-        // Variable is accessed via a cmp eax,[...] line at offset=0.
-        private static String kBaitSignature = "4883C4305BC3498BC8E8????????3B05";
-        private static int kBaitBaseOffset = 0;
-        private static bool kBaitBaseRIP = true;
-
         // A piece of code that reads the job data.
         // The pointer of interest is the first ???????? in the signature.
         private static String kJobDataSignature = "488B0D????????4885C90F84????????488B05????????3C03";
@@ -172,15 +166,6 @@ namespace RainbowMage.OverlayPlugin.MemoryProcessors
                 in_combat_addr_ = p[0];
             }
 
-            p = SigScan(kBaitSignature, kBaitBaseOffset, kBaitBaseRIP);
-            if (p.Count != 1)
-            {
-                logger_.Log(LogLevel.Error, "Bait signature found " + p.Count + " matches");
-            }
-            else
-            {
-                bait_addr_ = p[0];
-            }
         }
 
         public unsafe override EntityData GetEntityDataFromByteArray(byte[] source)
@@ -259,8 +244,6 @@ namespace RainbowMage.OverlayPlugin.MemoryProcessors
             if (entity_ptr == IntPtr.Zero)
                 return null;
             var data = GetEntityData(entity_ptr);
-            if (data.job == EntityJob.FSH)
-                data.bait = GetBait();
             return data;
         }
 
