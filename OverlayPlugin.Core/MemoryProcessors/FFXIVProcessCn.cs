@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace RainbowMage.OverlayPlugin.MemoryProcessors
 {
-    public class FFXIVProcessIntl : FFXIVProcess
+    public class FFXIVProcessCn : FFXIVProcess
     {
         // Last updated for FFXIV 6.4
 
@@ -80,7 +80,7 @@ namespace RainbowMage.OverlayPlugin.MemoryProcessors
             public byte level;
         }
 
-        public FFXIVProcessIntl(TinyIoCContainer container) : base(container) { }
+        public FFXIVProcessCn(TinyIoCContainer container) : base(container) { }
 
         // TODO: all of this could be refactored into structures of some sort
         // instead of just being loose variables everywhere.
