@@ -2,6 +2,7 @@ name: IINACT build
 
 on:
   push:
+    paths-ignore: 'repo.json'
     branches: [ "main" ]
   workflow_dispatch:
 
