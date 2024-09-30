@@ -1,8 +1,8 @@
 [
 {
   "Author": "Usagi",
-  "Name": "IINACT_CN",
-  "InternalName": "IINACT_CN",
+  "Name": "IINACT",
+  "InternalName": "IINACT",
   "AssemblyVersion": "2.7.2.0",
   "TestingAssemblyVersion": "2.7.2.0",
   "Description": "A plugin to run the FFXIV_ACT_Plugin in an ACT-like environment with a heavily modified port of Overlay Plugin for modern .NET",
